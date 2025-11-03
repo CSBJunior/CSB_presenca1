@@ -1,0 +1,32 @@
+:root{
+  --navy:#0b1b5e;
+  --bg1:#d9e5ff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(180deg,var(--bg1) 0%, #f3f6ff 100%);
+  color:var(--navy);
+  min-height:100vh;
+}
+.topo{
+  position:fixed; top:0; width:100%; text-align:center;
+  background: rgba(255,255,255,0.75); backdrop-filter: blur(6px);
+  padding:12px 8px; box-shadow:0 2px 6px rgba(0,0,0,0.08); z-index:10;
+}
+.brand h1{margin:0;font-size:20px}
+.brand p{margin:2px 0 0 0;font-size:13px;color:#20337e}
+.container{padding-top:120px; display:flex; justify-content:center; align-items:flex-start;}
+.welcome{max-width:520px; width:95%; text-align:center}
+.grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:18px 0}
+.evt-btn{padding:16px;border-radius:10px;border:none;background:var(--navy);color:#fff;font-size:16px;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,0.15)}
+.evt-btn:active{transform:scale(.995)}
+.form-section{max-width:520px; width:95%; margin:0 auto; text-align:center}
+label{display:block; margin-bottom:8px; font-weight:600}
+select{padding:12px;border-radius:10px;border:1px solid #ccc;width:100%; max-width:320px;margin:0 auto; display:block}
+button#registrar{margin-top:14px;padding:12px 18px;border-radius:10px;border:none;background:var(--navy);color:#fff;font-size:16px;cursor:pointer}
+#mensagem{margin-top:16px;padding:10px;border-radius:8px;display:none}
+#mensagem.success{display:block;background:rgba(0,128,0,0.08);color:green}
+#mensagem.error{display:block;background:rgba(255,0,0,0.06);color:red}
+@media(max-width:420px){ .grid{grid-template-columns:1fr} .brand h1{font-size:18px} }
