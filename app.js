@@ -1,31 +1,33 @@
 // === app.js ===
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbx-djrCLF2funuELHhFR9YQgGdkOlQYbcy_hipi1EgUsJ_iYIzHsEqdhuDPAgcp4SxVQA/exec"; // mantenha o mesmo link /exec
+const scriptURL = "https://script.google.com/macros/s/AKfycbx-djrCLF2funuELHhFR9YQgGdkOlQYbcy_hipi1EgUsJ_iYIzHsEqdhuDPAgcp4SxVQA/exec"; // seu link /exec
 
 if (document.readyState !== 'loading') init();
 else document.addEventListener('DOMContentLoaded', init);
 
 function init() {
-  // Página inicial: botões de eventos
+  // Página inicial (index.html): botões de eventos
   const evtBtns = document.querySelectorAll('.evt-btn');
   if (evtBtns.length) {
     evtBtns.forEach(b => {
       b.addEventListener('click', () => {
         const ev = b.dataset.evento;
+        // abre a página de presença com o tipo de evento na URL
         location.href = `presenca.html?evento=${encodeURIComponent(ev)}`;
       });
     });
     return;
   }
 
-  // Página de presença
+  // Página de presença (presenca.html)
   const params = new URLSearchParams(location.search);
-  const evento = params.get('evento') || 'RG';
+  const evento = params.get('evento') || 'RG'; // lê o evento da URL
   const titulo = document.getElementById('titulo');
   const subtitulo = document.getElementById('subtitulo');
   if (titulo) titulo.textContent = `Registrar Presença - ${evento}`;
   if (subtitulo) subtitulo.textContent = evento;
 
+  // Botão de envio
   const btn = document.getElementById('registrar');
   btn.addEventListener('click', async () => {
     const nome = document.getElementById('nome').value;
@@ -37,6 +39,7 @@ function init() {
       return;
     }
 
+    // Monta o corpo da requisição com nome + evento
     const data = new URLSearchParams();
     data.append('nome', nome);
     data.append('evento', evento);
@@ -47,19 +50,14 @@ function init() {
       const text = await res.text();
       mensagem.className = 'success';
       mensagem.textContent = `✅ Presença registrada: ${nome} (${evento})`;
+      console.log(text);
 
+      // Volta para tela inicial após 1.5s
       setTimeout(() => location.href = 'index.html', 1500);
     } catch (err) {
       mensagem.className = 'error';
       mensagem.textContent = '❌ Erro ao registrar presença.';
       console.error(err);
     }
-  });
-}
-
-// Service Worker opcional
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js').catch(e => console.warn('SW falhou', e));
   });
 }
