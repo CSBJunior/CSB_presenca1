@@ -1,5 +1,5 @@
 // app.js - comportamento compartilhado
-const scriptURL = "https://script.google.com/macros/s/AKfycbyZ31zb-QRdK5LzkLNGDRQ1qRa0CVgCWu0KRymJs9nmU4qW9yBJb_oGNCSnxBToOWO3ig/exec"; // <<=============================================================================
+const scriptURL = "https://script.google.com/macros/s/AKfycbyLquxC7YDiFadMNGNASTadLVp9qqF4_K3V2Zxtfa1NiZi_eA82E0YKCqlHOkVKyWYl/exec"; // <<=============================================================================
 
 /* --- navegação entre index.html e presenca.html --- */
 if (document.readyState !== 'loading') init();
