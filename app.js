@@ -1,6 +1,6 @@
 // === app.js ===
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbx-djrCLF2funuELHhFR9YQgGdkOlQYbcy_hipi1EgUsJ_iYIzHsEqdhuDPAgcp4SxVQA/exec"; // seu link /exec
+const scriptURL = "https://script.google.com/macros/s/AKfycbzJPCBQJTW_TaQMpTfonNUdawX730e67y9fgFbHZVlGUVQVI1mV34BDsOnAgy9dY0Yxow/exec"; // seu link /exec
 
 if (document.readyState !== 'loading') init();
 else document.addEventListener('DOMContentLoaded', init);
