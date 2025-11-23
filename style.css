@@ -26,8 +26,8 @@ body{
 }
 
 .blu-grande{
-  width:240px;
-  max-width:55%;
+  width:140px;
+  max-width:40%;
 }
 
 /* ================================================ */
@@ -154,4 +154,5 @@ button#registrar{
     display: none; /* some no celular para não atrapalhar */
   }
 }
+
 
