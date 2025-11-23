@@ -121,3 +121,37 @@ button#registrar{
   .blu-pequeno{width:110px}
   .blu-grande{width:180px}
 }
+/* Blus nas laterais */
+.blu-left,
+.blu-right {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 180px;
+  opacity: 0.9;
+  pointer-events: none; /* não interfere nos botões */
+  z-index: 2;
+}
+
+.blu-left {
+  left: 20px;
+}
+
+.blu-right {
+  right: 20px;
+}
+
+/* Responsivo */
+@media (max-width: 700px) {
+  .blu-left, .blu-right {
+    width: 120px;
+    opacity: 0.4;
+  }
+}
+
+@media (max-width: 480px) {
+  .blu-left, .blu-right {
+    display: none; /* some no celular para não atrapalhar */
+  }
+}
+
